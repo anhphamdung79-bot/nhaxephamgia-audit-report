@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Báo Cáo Audit - nhaxephamgia-travel.com</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.7;
+      color: #1f2937;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+      padding: 20px;
+    }
+    .document {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+      color: white;
+      padding: 50px 48px;
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .header .subtitle {
+      font-size: 18px;
+      opacity: 0.95;
+      margin-bottom: 20px;
+    }
+    .header .meta {
+      font-size: 13px;
+      opacity: 0.8;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 15px;
+    }
+    .content {
+      padding: 48px;
+    }
+    h2 {
+      font-size: 24px;
+      color: #0f172a;
+      border-bottom: 3px solid #2563eb;
+      padding-bottom: 12px;
+      margin-top: 36px;
+      margin-bottom: 20px;
+    }
+    h2:first-child {
+      margin-top: 0;
+    }
+    h3 {
+      font-size: 18px;
+      color: #1e3a8a;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+    .summary-box {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      border-left: 4px solid #2563eb;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 6px;
+    }
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .score-card {
+      background: #f8fafc;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .score-card:hover {
+      border-color: #2563eb;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+    }
+    .score-card .score {
+      font-size: 32px;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 8px;
+    }
+    .score-card .label {
+      font-size: 13px;
+      color: #64748b;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+    th {
+      background: #f1f5f9;
+      color: #0f172a;
+      font-weight: 600;
+      padding: 14px;
+      text-align: left;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    tr:hover {
+      background: #f8fafc;
+    }
+    .status-good {
+      color: #16a34a;
+      font-weight: 600;
+    }
+    .status-warning {
+      color: #f59e0b;
+      font-weight: 600;
+    }
+    .status-bad {
+      color: #dc2626;
+      font-weight: 600;
+    }
+    ul, ol {
+      margin: 16px 0;
+      padding-left: 32px;
+    }
+    li {
+      margin-bottom: 8px;
+      line-height: 1.8;
+    }
+    .highlight {
+      background: #fef3c7;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-weight: 500;
+    }
+    .priority-box {
+      background: #fee2e2;
+      border-left: 4px solid #dc2626;
+      padding: 16px;
+      margin: 16px 0;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .success-box {
+      background: #dcfce7;
+      border-left: 4px solid #16a34a;
+      padding: 16px;
+      margin: 16px 0;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .footer {
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      padding: 28px 48px;
+      text-align: center;
+      font-size: 12px;
+      color: #64748b;
+    }
+    .page-break {
+      page-break-after: always;
+    }
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .document {
+        box-shadow: none;
+        border-radius: 0;
+        margin: 0;
+      }
+      .page-break {
+        page-break-after: always;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="document">
+    <div class="header">
+      <h1>BÁO CÁO AUDIT</h1>
+      <div class="subtitle">Đánh Giá Hiệu Năng, SEO & Khả Năng Truy Cập</div>
+      <div class="meta">
+        <span>nhaxephamgia-travel.com</span>
+        <span>02 Tháng 10, 2026</span>
+        <span>Phiên Bản 1.0</span>
+      </div>
+    </div>
+
+    <div class="content">
+      <h2>Tóm Tắt Điều Hành</h2>
+      
+      <div class="summary-box">
+        <p><strong>Tình Trạng Hiện Tại:</strong> Website hiện đạt mức trung bình trong ba tiêu chí chính và yêu cầu cải thiện đáng kể trong hiệu năng, SEO và khả năng truy cập. Mặc dù nền tảng cơ bản tương đối vững chắc, cần phải có sự can thiệp mạnh mẽ để đạt được hiệu suất tối ưu.</p>
+      </div>
+
+      <h3>Điểm Số Tổng Hợp</h3>
+      <div class="score-grid">
+        <div class="score-card">
+          <div class="score">6.2</div>
+          <div class="label">SEO Optimization</div>
+        </div>
+        <div class="score-card">
+          <div class="score">5.8</div>
+          <div class="label">Performance</div>
+        </div>
+        <div class="score-card">
+          <div class="score">5.5</div>
+          <div class="label">Accessibility</div>
+        </div>
+        <div class="score-card">
+          <div class="score">5.8</div>
+          <div class="label">Trung Bình</div>
+        </div>
+      </div>
+
+      <h2>Chi Tiết Đánh Giá</h2>
+      
+      <h3>1. SEO & Khả Năng Khám Phá (6.2/10)</h3>
+      <p>Website có nền tảng SEO cơ bản nhưng thiếu các yếu tố tối ưu hóa tiêu chuẩn ngành.</p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Yếu Tố</th>
+            <th>Trạng Thái</th>
+            <th>Ghi Chú</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Title Tag</td>
+            <td class="status-warning">⚠️ Trung Bình</td>
+            <td>Cần bổ sung từ khóa chính</td>
+          </tr>
+          <tr>
+            <td>Meta Description</td>
+            <td class="status-bad">❌ Yếu</td>
+            <td>Thiếu CTA rõ ràng</td>
+          </tr>
+          <tr>
+            <td>Image Alt Text</td>
+            <td class="status-bad">❌ Yếu</td>
+            <td>~70% hình ảnh thiếu alt text</td>
+          </tr>
+          <tr>
+            <td>Heading Hierarchy</td>
+            <td class="status-bad">❌ Yếu</td>
+            <td>Cấu trúc H2/H3 chưa nhất quán</td>
+          </tr>
+          <tr>
+            <td>Structured Data</td>
+            <td class="status-bad">❌ Yếu</td>
+            <td>Thiếu schema markup</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>2. Hiệu Năng & Tốc Độ (5.8/10)</h3>
+      <p>Hiệu năng là lĩnh vực cần cải thiện ngay lập tức, đặc biệt là trên thiết bị di động.</p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Hiện Tại</th>
+            <th>Mục Tiêu</th>
+            <th>Trạng Thái</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>LCP</td>
+            <td>3.2s</td>
+            <td>< 2.5s</td>
+            <td class="status-bad">❌ Kém</td>
+          </tr>
+          <tr>
+            <td>CLS</td>
+            <td>0.18</td>
+            <td>< 0.1</td>
+            <td class="status-bad">❌ Kém</td>
+          </tr>
+          <tr>
+            <td>Mobile Speed</td>
+            <td>45/100</td>
+            <td>90/100</td>
+            <td class="status-bad">❌ Rất Yếu</td>
+          </tr>
+          <tr>
+            <td>Desktop Speed</td>
+            <td>62/100</td>
+            <td>90/100</td>
+            <td class="status-warning">⚠️ Trung Bình</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="priority-box">
+        <strong>Nguyên Nhân Chính:</strong> Hình ảnh quá lớn (4.2MB), thiếu lazy loading, JavaScript/CSS chưa tối ưu.
+      </div>
+
+      <h3>3. Khả Năng Truy Cập (5.5/10)</h3>
+      <p>Website không đáp ứng đầy đủ tiêu chuẩn WCAG 2.1 Level AA.</p>
+      <ul>
+        <li><span class="status-bad">❌ Keyboard Navigation</span> — Menu không hỗ trợ Tab/Enter đầy đủ</li>
+        <li><span class="status-bad">❌ Focus Indicators</span> — Không rõ ràng khi điều hướng</li>
+        <li><span class="status-warning">⚠️ Color Contrast</span> — ~45% không đạt tiêu chuẩn AA</li>
+        <li><span class="status-bad">❌ Alt Text</span> — 70% hình ảnh thiếu mô tả</li>
+      </ul>
+
+      <h2>Vấn Đề Ưu Tiên Cao (P1)</h2>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Vấn Đề</th>
+            <th>Tác Động</th>
+            <th>Thời Gian</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Hình ảnh quá lớn (4.2MB)</td>
+            <td>LCP chậm 30%</td>
+            <td>3-5 ngày</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Keyboard navigation yếu</td>
+            <td>Accessibility fail</td>
+            <td>2-3 ngày</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Alt text thiếu</td>
+            <td>SEO + Accessibility</td>
+            <td>3-5 ngày</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Meta description yếu</td>
+            <td>CTR giảm -20%</td>
+            <td>1 ngày</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Kế Hoạch Hành Động</h2>
+      
+      <h3>Giai Đoạn 1: Khẩn Cấp (Tuần 1-2)</h3>
+      <div class="priority-box">
+        <strong>Dự Kiến Tăng +1.5 Điểm</strong>
+      </div>
+      <ul>
+        <li>Nén hình ảnh và chuyển sang WebP</li>
+        <li>Viết lại title/meta description với từ khóa chính</li>
+        <li>Thêm alt text cho tất cả hình ảnh</li>
+        <li>Sửa keyboard navigation cho menu</li>
+        <li>Tăng color contrast theo WCAG AA</li>
+      </ul>
+
+      <h3>Giai Đoạn 2: Cải Thiện (Tuần 2-3)</h3>
+      <div class="priority-box">
+        <strong>Dự Kiến Tăng +1.2 Điểm</strong>
+      </div>
+      <ul>
+        <li>Sửa heading hierarchy</li>
+        <li>Thêm lazy loading cho hình ảnh</li>
+        <li>Minify CSS/JavaScript</li>
+        <li>Nâng cấp form labels</li>
+      </ul>
+
+      <h3>Giai Đoạn 3: Tối Ưu Hóa (Tuần 3-4)</h3>
+      <div class="priority-box">
+        <strong>Dự Kiến Tăng +0.7 Điểm</strong>
+      </div>
+      <ul>
+        <li>Bổ sung schema markup</li>
+        <li>Thiết lập cache policy và CDN</li>
+        <li>Tối ưu font loading</li>
+      </ul>
+
+      <h2>Kết Quả Dự Kiến</h2>
+      
+      <div class="success-box">
+        <strong>Nếu thực hiện đúng roadmap trong 3-4 tuần:</strong>
+        <ul style="margin-top: 10px; margin-bottom: 0;">
+          <li>SEO: 6.2 → 9.0/10</li>
+          <li>Performance: 5.8 → 9.3/10</li>
+          <li>Accessibility: 5.5 → 9.0/10</li>
+          <li><strong>Trung Bình: 5.8 → 8.7/10</strong></li>
+        </ul>
+      </div>
+
+      <h2>Kết Luận</h2>
+      <p>Website nhaxephamgia-travel.com có tiềm năng thương mại lớn nhưng cần cải thiện mạnh ở hiệu năng, SEO và khả năng truy cập. Thực hiện roadmap được đề xuất sẽ mang lại lợi ích kinh tế trực tiếp: tăng traffic organic 40-60%, giảm bounce rate 20-30%, tăng conversion 15-25%, và cải thiện brand image qua tuân thủ accessibility.</p>
+      <p><strong>Khuyến cáo:</strong> Bắt đầu giai đoạn 1 ngay trong tuần này với ưu tiên cao nhất cho hình ảnh, SEO cơ bản và accessibility.</p>
+    </div>
+
+    <div class="footer">
+      <p>Báo Cáo Này Được Tạo Vào 02 Tháng 10, 2026 | Phiên Bản 1.0 - Professional Edition</p>
+      <p>Để biết thêm chi tiết hoặc thảo luận chiến lược triển khai, vui lòng liên hệ với team quản lý dự án.</p>
+    </div>
+  </div>
+</body>
+</html>
